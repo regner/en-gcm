@@ -19,4 +19,6 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 CMD gunicorn en_gcm:app -w 1 -b 0.0.0.0:8000 --log-level info --timeout 120 --pid /en_gcm/en_gcm.pid

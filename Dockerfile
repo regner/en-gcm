@@ -12,6 +12,7 @@ RUN pip install -U pip
 
 ADD en_gcm.py /en_gcm/
 ADD requirements.txt /en_gcm/
+ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 WORKDIR /en_gcm
 

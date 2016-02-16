@@ -21,4 +21,4 @@ deployment:
     branch: master
     commands:
       - ./en-kube-config/docker-push.sh
-      - ./en-kube-config/deploy.sh "eve-notifications" "en-gcm" "en-kube-config/en-gcms/en-gcm-rc.yml"
+      - ./en-kube-config/deploy.sh "eve-notifications" "en-gcm" "en-kube-config/en-gcm/en-gcm-rc.yml"

@@ -57,10 +57,11 @@ class Internal(Resource):
 class External(Resource):
     def get(self):
         return {'project_id': os.environ.get('ProjectID', '1045503414087')}
-    
-    @authenticate()
-    def post(self):
-        character_id = request.token['character_id']
+
+
+class ExternalCharacterSettings(Resource):
+    @authenticate(match_data=['character_id'])
+    def put(self, character_id):
         parser = reqparse.RequestParser()
         parser.add_argument('gcm_token', type=str, required=True)
 
@@ -87,6 +88,7 @@ class External(Resource):
 
 api.add_resource(Internal, '/internal/')
 api.add_resource(External, '/external/')
+api.add_resource(ExternalCharacterSettings, '/external/characters/<int:character_id>/')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
